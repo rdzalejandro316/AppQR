@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:cards="clr-namespace:Syncfusion.XForms.Cards;assembly=Syncfusion.Cards.XForms"
+             xmlns:barcode="clr-namespace:Syncfusion.SfBarcode.XForms;assembly=Syncfusion.SfBarcode.XForms"
+             xmlns:combobox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms"
+                          xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+             x:Class="QRcode.View.GenerateQR">
+
+    <ContentPage.Resources>
+        <Style TargetType="inputLayout:SfTextInputLayout" x:Key="combo">
+            <Setter Property="Margin" Value="10,0,10,0"/>
+            <Setter Property="ContainerType" Value="Outlined"/>
+        </Style>
+        <Style TargetType="combobox:SfComboBox" x:Key="comboStyle">
+            <Setter Property="HeightRequest" Value="50"/>
+            <Setter Property="Text" Value="Seleccione un tipo"/>
+            <Setter Property="Margin" Value="20,0,20,0"/>
+            <Setter Property="TextSize" Value="10"/>
+            <Setter Property="DropDownTextSize" Value="10"/>
+        </Style>
+        <Style TargetType="Entry" x:Key="TextCode">
+            <Setter Property="FontSize" Value="10"/>
+            <Setter Property="HeightRequest" Value="50"/>
+        </Style>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <cards:SfCardView Margin="20" ShadowColor="#373737" HasShadow="True">
+            <ScrollView x:Name="PanelMain">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="60"/>
+                        <RowDefinition Height="60"/>
+                        <RowDefinition Height="10"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid x:Name="GridBarCode">
+                        <barcode:SfBarcode x:Name="SyncBarCode" Text="{Binding textcode}" BackgroundColor="White" Symbology="CodaBar"/>
+                    </Grid>
+
+                    <Grid Grid.Row="1">
+                        <inputLayout:SfTextInputLayout Hint="Tipo" Style="{StaticResource combo}" >
+                            <combobox:SfComboBox x:Name="ComTipo" DataSource="{Binding typeCollection}" 
+                               SelectionChanged="ComTipo_SelectionChanged"
+                               Style="{StaticResource comboStyle}"/>
+                        </inputLayout:SfTextInputLayout>
+                    </Grid>
+
+                    <Grid Grid.Row="2">
+                        <inputLayout:SfTextInputLayout Hint="Texto" Style="{StaticResource combo}">
+                            <Entry Text="{Binding textcode}" Style="{StaticResource TextCode}"/>
+                        </inputLayout:SfTextInputLayout>
+                    </Grid>
+
+                </Grid>
+            </ScrollView>
+        </cards:SfCardView>
+    </ContentPage.Content>
+</ContentPage>

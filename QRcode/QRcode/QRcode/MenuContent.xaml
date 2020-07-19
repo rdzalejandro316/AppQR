@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:QRcode"
+             xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"             
+             x:Class="QRcode.MenuContent" Title="Siasoft QR" BackgroundColor="White">
+
+    
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.2*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="0.2*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="20"/>
+            </Grid.ColumnDefinitions>
+            <Grid.Resources>
+                <Style TargetType="buttons:SfButton" x:Key="btn">
+                    <Setter Property="BackgroundColor" Value="{StaticResource ColorMain}"/>
+                    <Setter Property="CornerRadius" Value="5"/>
+                    <Setter Property="Margin" Value="5"/>
+                    <Setter Property="HasShadow" Value="True"/>
+                    <Setter Property="ShadowColor" Value="LightGray"/>
+                    <Setter Property="Visual" Value="Material"/>
+                </Style>
+                <Style TargetType="Label" x:Key="titulo">
+                    <Setter Property="TextColor" Value="{StaticResource ColorSecond}"/>
+                    <Setter Property="FontSize" Value="16"/>
+                    <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+                    <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+                </Style>
+                <Style TargetType="Image" x:Key="imagemenu">
+                    <Setter Property="VerticalOptions" Value="Center"/>
+                    <Setter Property="HorizontalOptions" Value="Center"/>
+                    <Setter Property="HeightRequest" Value="40"/>
+                    <Setter Property="Margin" Value="0,10,0,0"/>
+                </Style>
+            </Grid.Resources>
+
+
+            <buttons:SfButton  x:Name="BtnGenereate" Grid.Row="1" Grid.Column="1"  Clicked="BtnGenereate_Clicked" Style="{StaticResource btn}">
+                <buttons:SfButton.Content>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="30"/>
+                        </Grid.RowDefinitions>
+                        <Grid>
+                            <Image Source="qrcode.png" Style="{StaticResource imagemenu}"/>
+                        </Grid>
+                        <Label Grid.Row="1" Text="Generar QR" Style="{StaticResource titulo}"/>
+                    </Grid>
+                </buttons:SfButton.Content>
+
+            </buttons:SfButton>
+
+            <buttons:SfButton  x:Name="BtnScanner" Grid.Row="1" Grid.Column="2" Clicked="BtnScanner_Clicked" Style="{StaticResource btn}">
+                <buttons:SfButton.Content>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="30"/>
+                        </Grid.RowDefinitions>
+                        <Grid>
+                            <Image Source="qrread.png" Style="{StaticResource imagemenu}"/>
+                        </Grid>
+                        <Label Grid.Row="1" Text="Leer QR" Style="{StaticResource titulo}"/>
+                    </Grid>
+                </buttons:SfButton.Content>
+            </buttons:SfButton>
+
+            <buttons:SfButton  x:Name="BtnRecord" Grid.Row="2" Grid.Column="1" Clicked="BtnRecord_Clicked" Style="{StaticResource btn}">
+                <buttons:SfButton.Content>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="30"/>
+                        </Grid.RowDefinitions>
+                        <Grid>
+                            <Image Source="historial.png" Style="{StaticResource imagemenu}"/>
+                        </Grid>
+                        <Label Grid.Row="1" Text="Historial" Style="{StaticResource titulo}"/>
+                    </Grid>
+                </buttons:SfButton.Content>
+            </buttons:SfButton>
+
+            <buttons:SfButton  x:Name="BtnConfig" Grid.Row="2" Grid.Column="2" Clicked="BtnConfig_Clicked" Style="{StaticResource btn}">
+                <buttons:SfButton.Content>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="30"/>
+                        </Grid.RowDefinitions>
+                        <Grid>
+                            <Image Source="config.png" Style="{StaticResource imagemenu}"/>
+                        </Grid>
+                        <Label Grid.Row="1" Text="Configuracion" Style="{StaticResource titulo}"/>
+                    </Grid>
+                </buttons:SfButton.Content>
+            </buttons:SfButton>
+
+
+        </Grid>
+    </ContentPage.Content>
+
+
+</ContentPage>
