@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:syncfusion="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"             
+             xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+             x:Class="QRcode.View.RecordsQR" BackgroundColor="WhiteSmoke">
+    
+    <ContentPage.Content>
+        <syncfusion:SfListView 
+                   ItemsSource="{Binding RecordInfo}" VerticalOptions="FillAndExpand" AutoFitMode="DynamicHeight" AllowSwiping="True">
+            <syncfusion:SfListView.LeftSwipeTemplate>
+                <DataTemplate x:Name="LeftSwipeTemplate">
+                    <Grid>
+                        <Grid BackgroundColor="{StaticResource ColorMain}" HorizontalOptions="Fill" VerticalOptions="Fill" Grid.Column="0">
+                            <buttons:SfButton x:Name="BtnDelete" Clicked="BtnDelete_Clicked">
+                                <buttons:SfButton.Content>
+                                    <Image Source="delete.png"  HeightRequest="30" WidthRequest="30" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                </buttons:SfButton.Content>
+                            </buttons:SfButton>
+                        </Grid>
+                    </Grid>
+                </DataTemplate>
+            </syncfusion:SfListView.LeftSwipeTemplate>
+
+            <syncfusion:SfListView.ItemTemplate>
+                <DataTemplate>
+                    <Frame BorderColor="LightGray">
+                        <Grid Margin="5" BackgroundColor="White" >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="0.4*" />
+                                <RowDefinition Height="0.6*" />
+                            </Grid.RowDefinitions>
+                            
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="FECHA:" TextColor="{StaticResource ColorMain}" FontSize="12" FontAttributes="Bold"/>
+                                <Label Text="{Binding Date}" FontAttributes="Bold" TextColor="{StaticResource ColorMain}" FontSize="12"/>
+                            </StackLayout>
+                            
+                            <Label Grid.Row="1" Text="{Binding Code}" TextColor="Black" FontSize="20"/>
+
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </syncfusion:SfListView.ItemTemplate>
+        </syncfusion:SfListView>
+    </ContentPage.Content>
+</ContentPage>

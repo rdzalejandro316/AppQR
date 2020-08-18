@@ -6,12 +6,41 @@
              xmlns:viewmodels="clr-namespace:QRcode.View"
              x:Class="QRcode.View.ReadQR">
 
-    <ContentPage.BindingContext>
+    <!--<ContentPage.BindingContext>
         <viewmodels:MainPageViewModel/>
-    </ContentPage.BindingContext>
+    </ContentPage.BindingContext>-->
 
-    <StackLayout Padding="20">
-        <Button Command="{Binding ButtonCommand}" HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand" BackgroundColor="Teal" TextColor="White" FontSize="Medium" Text="Click to open scanner" />
-        <Label Text="{Binding Result}" HorizontalOptions="Center" VerticalOptions="StartAndExpand" />
-    </StackLayout>
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="45"/>
+        </Grid.RowDefinitions>
+
+        <ListView x:Name="navigationDrawerList" VerticalOptions="FillAndExpand" HasUnevenRows="True" SeparatorVisibility="Default" BackgroundColor="White" ItemsSource="{Binding ListCode}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid VerticalOptions="FillAndExpand"                             
+                             Padding="5,10,5,10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="50"/>
+                                <ColumnDefinition Width="1.2*"/>
+                                <ColumnDefinition Width="0.8*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Button Grid.Column="0" Text="Copy" HeightRequest="40" VerticalOptions="Center" FontSize="10" CornerRadius="10" TextColor="{StaticResource ColorMain}"  BorderWidth="2" BorderColor="{StaticResource ColorMain}" BackgroundColor="White" CommandParameter="{Binding code}" Clicked="Button_Clicked"/>
+                            <Label Grid.Column="1" Text="{Binding code}" FontSize="13" VerticalOptions="Center" TextColor="Black" Margin="5,0,0,0"/>
+                            <Label Grid.Column="2" Text="{Binding date}" FontSize="9" VerticalOptions="Center" TextColor="{StaticResource ColorMain}"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        
+        <Label Grid.Row="1" Text="{Binding Result}" HorizontalOptions="Center" VerticalOptions="StartAndExpand" TextColor="Black" FontAttributes="Bold"/>
+
+        <Button Grid.Row="2" Command="{Binding ButtonCommand}" HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand" BackgroundColor="{StaticResource ColorMain}" TextColor="White" FontSize="Medium" CornerRadius="5" Text="Abrir Scanner"/>
+
+    </Grid>
 </ContentPage>

@@ -44,19 +44,25 @@ namespace QRcode
             }
         }
 
-        private void BtnRecord_Clicked(object sender, EventArgs e)
+        private async void BtnRecord_Clicked(object sender, EventArgs e)
         {
-
+            try
+            {
+                App.MasterD.IsPresented = false;
+                await App.MasterD.Detail.Navigation.PushAsync(new View.RecordsQR());
+            }
+            catch (Exception w)
+            {
+                await DisplayAlert("alert", "error Leer Qr:" + w, "OK");
+            }
         }
 
         private void BtnConfig_Clicked(object sender, EventArgs e)
         {
 
         }
-    }
-    
 
 
-
+    }    
 
 }

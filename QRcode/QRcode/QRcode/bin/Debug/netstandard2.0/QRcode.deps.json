@@ -14,10 +14,13 @@
           "Syncfusion.Xamarin.Cards": "18.1.0.42",
           "Syncfusion.Xamarin.Core": "18.1.0.42",
           "Syncfusion.Xamarin.SfBarcode": "18.1.0.42",
+          "Syncfusion.Xamarin.SfBusyIndicator": "18.1.0.42",
           "Syncfusion.Xamarin.SfComboBox": "18.1.0.42",
+          "Syncfusion.Xamarin.SfListView": "18.1.0.42",
           "Xamarin.Essentials": "1.3.1",
           "Xamarin.Forms": "4.5.0.495",
-          "ZXing.Net.Mobile.Forms": "2.4.1"
+          "ZXing.Net.Mobile.Forms": "2.4.1",
+          "sqlite-net-standard": "1.5.1"
         },
         "runtime": {
           "QRcode.dll": {}
@@ -27,6 +30,45 @@
       "NETStandard.Library/2.0.3": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0"
+        }
+      },
+      "sqlite-net-standard/1.5.1": {
+        "dependencies": {
+          "NETStandard.Library": "2.0.3",
+          "SQLitePCLRaw.bundle_green": "1.1.5"
+        },
+        "runtime": {
+          "lib/netstandard1.1/SQLiteNetStandard.dll": {
+            "assemblyVersion": "1.5.1.0",
+            "fileVersion": "1.5.1.0"
+          }
+        }
+      },
+      "SQLitePCLRaw.bundle_green/1.1.5": {
+        "dependencies": {
+          "NETStandard.Library": "2.0.3",
+          "SQLitePCLRaw.core": "1.1.5"
+        },
+        "runtime": {
+          "lib/netstandard1.1/SQLitePCLRaw.batteries_green.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          },
+          "lib/netstandard1.1/SQLitePCLRaw.batteries_v2.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "SQLitePCLRaw.core/1.1.5": {
+        "dependencies": {
+          "NETStandard.Library": "2.0.3"
+        },
+        "runtime": {
+          "lib/netstandard1.1/SQLitePCLRaw.core.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "Syncfusion.Licensing/18.1.0.42": {
@@ -73,6 +115,22 @@
           }
         }
       },
+      "Syncfusion.Xamarin.DataSource/18.1.0.42": {
+        "runtime": {
+          "lib/netstandard2.0/Syncfusion.DataSource.Portable.dll": {
+            "assemblyVersion": "18.1451.0.42",
+            "fileVersion": "18.1451.0.42"
+          }
+        }
+      },
+      "Syncfusion.Xamarin.GridCommon/18.1.0.42": {
+        "runtime": {
+          "lib/netstandard2.0/Syncfusion.GridCommon.Portable.dll": {
+            "assemblyVersion": "18.1451.0.42",
+            "fileVersion": "18.1451.0.42"
+          }
+        }
+      },
       "Syncfusion.Xamarin.SfBarcode/18.1.0.42": {
         "dependencies": {
           "Syncfusion.Xamarin.Core": "18.1.0.42",
@@ -85,6 +143,18 @@
           }
         }
       },
+      "Syncfusion.Xamarin.SfBusyIndicator/18.1.0.42": {
+        "dependencies": {
+          "Syncfusion.Xamarin.Core": "18.1.0.42",
+          "Xamarin.Forms": "4.5.0.495"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Syncfusion.SfBusyIndicator.XForms.dll": {
+            "assemblyVersion": "18.1451.0.42",
+            "fileVersion": "18.1451.0.42"
+          }
+        }
+      },
       "Syncfusion.Xamarin.SfComboBox/18.1.0.42": {
         "dependencies": {
           "Syncfusion.Xamarin.Core": "18.1.0.42",
@@ -92,6 +162,20 @@
         },
         "runtime": {
           "lib/netstandard2.0/Syncfusion.SfComboBox.XForms.dll": {
+            "assemblyVersion": "18.1451.0.42",
+            "fileVersion": "18.1451.0.42"
+          }
+        }
+      },
+      "Syncfusion.Xamarin.SfListView/18.1.0.42": {
+        "dependencies": {
+          "Syncfusion.Xamarin.Core": "18.1.0.42",
+          "Syncfusion.Xamarin.DataSource": "18.1.0.42",
+          "Syncfusion.Xamarin.GridCommon": "18.1.0.42",
+          "Xamarin.Forms": "4.5.0.495"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Syncfusion.SfListView.XForms.dll": {
             "assemblyVersion": "18.1451.0.42",
             "fileVersion": "18.1451.0.42"
           }
@@ -182,6 +266,27 @@
       "path": "netstandard.library/2.0.3",
       "hashPath": "netstandard.library.2.0.3.nupkg.sha512"
     },
+    "sqlite-net-standard/1.5.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-AuMmN/pIgLmvPt+DN536+HeVii0Zza6lHeQ06DT1ETuxn/5uQdEDOu9VE00FT8UyvgUgixa7riIMMxxzPm83CQ==",
+      "path": "sqlite-net-standard/1.5.1",
+      "hashPath": "sqlite-net-standard.1.5.1.nupkg.sha512"
+    },
+    "SQLitePCLRaw.bundle_green/1.1.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-rz+SPgp57CAWkEfCJmWqHXMd+fSqhgYmzOdjkSbCQ3OEG0I3+vUlycElvy5zTi0GAYg5pVrmRqbquotS0985CQ==",
+      "path": "sqlitepclraw.bundle_green/1.1.5",
+      "hashPath": "sqlitepclraw.bundle_green.1.1.5.nupkg.sha512"
+    },
+    "SQLitePCLRaw.core/1.1.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-NViT1KDYnPAQo7yoYmkAMWzT15ZjqbLTSZp9iTVwZDz7fBC5fQ9TYebOFUIxYxrD/RvBpYB8m9PtcL8x/QbKNg==",
+      "path": "sqlitepclraw.core/1.1.5",
+      "hashPath": "sqlitepclraw.core.1.1.5.nupkg.sha512"
+    },
     "Syncfusion.Licensing/18.1.0.42": {
       "type": "package",
       "serviceable": true,
@@ -210,6 +315,20 @@
       "path": "syncfusion.xamarin.core/18.1.0.42",
       "hashPath": "syncfusion.xamarin.core.18.1.0.42.nupkg.sha512"
     },
+    "Syncfusion.Xamarin.DataSource/18.1.0.42": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-of21MYAyWX6fla1n/vKce8/0/oyXqBKZdwXGNl+qlvjCLlkYwiJg0glUwjuPsiwpYpkSgfH3mwWT890/18qI6w==",
+      "path": "syncfusion.xamarin.datasource/18.1.0.42",
+      "hashPath": "syncfusion.xamarin.datasource.18.1.0.42.nupkg.sha512"
+    },
+    "Syncfusion.Xamarin.GridCommon/18.1.0.42": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-FUNddXrEcbw8+4ABLMI087tqLPCILadPVv0a9Lsx1t1+ttH0K0wO/g24cvm5XJ4HBxlNSlxrCWm7tNf3lnJegQ==",
+      "path": "syncfusion.xamarin.gridcommon/18.1.0.42",
+      "hashPath": "syncfusion.xamarin.gridcommon.18.1.0.42.nupkg.sha512"
+    },
     "Syncfusion.Xamarin.SfBarcode/18.1.0.42": {
       "type": "package",
       "serviceable": true,
@@ -217,12 +336,26 @@
       "path": "syncfusion.xamarin.sfbarcode/18.1.0.42",
       "hashPath": "syncfusion.xamarin.sfbarcode.18.1.0.42.nupkg.sha512"
     },
+    "Syncfusion.Xamarin.SfBusyIndicator/18.1.0.42": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-KMIOaiUXCA33hxHyo1iJyGeHZYku4mgR/p1hLrSAf2m7kmeXjAmoRV3OWf72l8dSMZ9Fz3ublujRVCwCsXP7ZA==",
+      "path": "syncfusion.xamarin.sfbusyindicator/18.1.0.42",
+      "hashPath": "syncfusion.xamarin.sfbusyindicator.18.1.0.42.nupkg.sha512"
+    },
     "Syncfusion.Xamarin.SfComboBox/18.1.0.42": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-kZ1MQZMU1Gy7yUtvqcI/2w1C/naknCsz0GYov197d5QAHn5wX8c5svXOQkFcrkC5jlUCy+KN21qQgM+h/ebSOQ==",
       "path": "syncfusion.xamarin.sfcombobox/18.1.0.42",
       "hashPath": "syncfusion.xamarin.sfcombobox.18.1.0.42.nupkg.sha512"
+    },
+    "Syncfusion.Xamarin.SfListView/18.1.0.42": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-+o2KMBfe9GAHWkq9YWQDxnt13TpO4sj8cBBtdo9Yqofp5y9eW7ezObQjAN1uRFV/63Pwa3Rg6uQuoh/0/UqiWg==",
+      "path": "syncfusion.xamarin.sflistview/18.1.0.42",
+      "hashPath": "syncfusion.xamarin.sflistview.18.1.0.42.nupkg.sha512"
     },
     "System.Numerics.Vectors/4.5.0": {
       "type": "package",

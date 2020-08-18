@@ -8,15 +8,34 @@ using ZXing;
 using ZXing.Mobile;
 using ZXing.Net.Mobile.Forms;
 using Xamarin.Forms.Xaml;
+using QRcode.Models;
+using System.Collections.ObjectModel;
+using ZXing.Client.Result;
+using Xamarin.Essentials;
 
 namespace QRcode.View
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ReadQR : ContentPage
     {
+        MainPageViewModel vm = new MainPageViewModel();
         public ReadQR()
         {
-            InitializeComponent();
+            InitializeComponent();            
+            this.BindingContext = vm;
+        }
+
+        private async void Button_Clicked(object sender, EventArgs e)
+        {
+            try
+            {                
+                var parameter = (sender as Button).CommandParameter;
+                await Clipboard.SetTextAsync(parameter.ToString());
+            }
+            catch (Exception w)
+            {
+                await Application.Current.MainPage.DisplayAlert("alerta", "errro copiar:" + w, "OK");
+            }            
         }
     }
 
@@ -34,11 +53,22 @@ namespace QRcode.View
             }
         }
 
-        public ICommand ButtonCommand { get; private set; }
+        public ObservableCollection<ListCodeBar> ListCode { get; set; }
+
+        private ListCodeBar _SelectedCodeBar;
+        public ListCodeBar SelectedCodeBar
+        {
+            get { return _SelectedCodeBar; }
+            set { _SelectedCodeBar = value; OnPropertyChanged("SelectedCodeBar");}
+        }
+
+        public ICommand ButtonCommand { get; set; }        
 
         public MainPageViewModel()
         {
             ButtonCommand = new Command(OnButtomCommand);
+            ListCode = new ObservableCollection<ListCodeBar>();
+            ListCode.Clear();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -55,8 +85,20 @@ namespace QRcode.View
             {
                 BarcodeFormat.QR_CODE,
                 BarcodeFormat.CODE_128,
-                BarcodeFormat.EAN_13
+                BarcodeFormat.EAN_13,
+                BarcodeFormat.CODABAR
             };
+
+            //var overlay = new ZXingDefaultOverlay
+            //{
+            //    ShowFlashButton = false,
+            //    //TopText = "I'm at the top",
+            //    //BottomText = "I'm at the bottom",                
+            //};
+            //overlay.BindingContext = overlay;
+
+
+            //var page = new ZXingScannerPage(options, overlay) { Title = "Scanner"};
             var page = new ZXingScannerPage(options) { Title = "Scanner" };
             var closeItem = new ToolbarItem { Text = "Close" };
 
@@ -68,12 +110,15 @@ namespace QRcode.View
                     Application.Current.MainPage.Navigation.PopModalAsync();
                 });
             };
+
+
             page.ToolbarItems.Add(closeItem);
             page.OnScanResult += (result) =>
             {
                 page.IsScanning = false;
 
-                Device.BeginInvokeOnMainThread(() => {
+                Device.BeginInvokeOnMainThread(() =>
+                {
                     Application.Current.MainPage.Navigation.PopModalAsync();
                     if (string.IsNullOrEmpty(result.Text))
                     {
@@ -81,15 +126,31 @@ namespace QRcode.View
                     }
                     else
                     {
-                        Result = $"Result: {result.Text}";
+                        Result = $"Resultado: {result.Text}";
+                        ListCode.Add(new ListCodeBar()
+                        {
+                            code = result.Text,
+                            date = DateTime.Now
+                        });
+                        
+                        //save database local
+                        App.Database.SavePersonAsync(new Record
+                        {
+                            Code = result.Text,
+                            Date = DateTime.Now
+                        });
                     }
                 });
             };
-            Application.Current.MainPage.Navigation.PushModalAsync(new NavigationPage(page) { BarTextColor = Color.White, BarBackgroundColor = Color.CadetBlue }, true);
+
+            Application.Current.MainPage.Navigation.PushModalAsync(
+                new NavigationPage(page)
+                { BarTextColor = Color.White, BarBackgroundColor = Color.FromHex("#F44336") },
+                    true
+                );
         }
 
 
 
     }
-
 }

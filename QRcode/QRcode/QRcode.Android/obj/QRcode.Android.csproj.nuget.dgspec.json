@@ -118,7 +118,15 @@
               "target": "Package",
               "version": "[18.1.0.42, )"
             },
+            "Syncfusion.Xamarin.SfBusyIndicator": {
+              "target": "Package",
+              "version": "[18.1.0.42, )"
+            },
             "Syncfusion.Xamarin.SfComboBox": {
+              "target": "Package",
+              "version": "[18.1.0.42, )"
+            },
+            "Syncfusion.Xamarin.SfListView": {
               "target": "Package",
               "version": "[18.1.0.42, )"
             },
@@ -133,6 +141,10 @@
             "ZXing.Net.Mobile.Forms": {
               "target": "Package",
               "version": "[2.4.1, )"
+            },
+            "sqlite-net-standard": {
+              "target": "Package",
+              "version": "[1.5.1, )"
             }
           },
           "imports": [
@@ -145,7 +157,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
         }
       }
     }

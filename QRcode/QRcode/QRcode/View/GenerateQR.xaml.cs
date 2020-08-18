@@ -40,7 +40,7 @@ namespace QRcode.View
                         break;
                     case BarcodeSymbolType.QRCode:                        
                         QRBarcodeSettings setting_QRCode = new QRBarcodeSettings();
-                        setting_QRCode.XDimension = 6;
+                        setting_QRCode.XDimension = 5;
                         SyncBarCode.SymbologySettings = setting_QRCode;
                         break;
                     case BarcodeSymbolType.UpcBarcode:                        
@@ -72,7 +72,8 @@ namespace QRcode.View
         }
         
         //string _textcode = "www.wikipedia.org";
-        string _textcode = "$52675:14-98";
+        //string _textcode = "$52675:14-98";
+        string _textcode = "$52675:14-98 esta mierda es la ques e convriete en giganete por que no tienen margen";
         public string textcode { get { return _textcode; } set { _textcode = value; OnPropertyChanged("textcode"); } }
         public ObservableCollection<string> typeCollection { get; set; }
         

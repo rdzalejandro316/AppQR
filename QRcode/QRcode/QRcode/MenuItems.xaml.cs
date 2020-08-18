@@ -29,7 +29,7 @@ namespace QRcode
 
             menuList.Add(new MasterPageItem() { Title = "Leer QR", Icon = "qrreadgray.png", TargetType = typeof(View.ReadQR) });
 
-            menuList.Add(new MasterPageItem() { Title = "Historial", Icon = "historialgray.png", TargetType = typeof(View.ReadQR) });
+            menuList.Add(new MasterPageItem() { Title = "Historial", Icon = "historialgray.png", TargetType = typeof(View.RecordsQR) });
 
             menuList.Add(new MasterPageItem() { Title = "Configuracion", Icon = "configgray.png", TargetType = typeof(View.ReadQR) });
 
