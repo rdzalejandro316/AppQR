@@ -12,6 +12,7 @@ using QRcode.Models;
 using System.Collections.ObjectModel;
 using ZXing.Client.Result;
 using Xamarin.Essentials;
+using Syncfusion.XForms.PopupLayout;
 
 namespace QRcode.View
 {
@@ -21,21 +22,70 @@ namespace QRcode.View
         MainPageViewModel vm = new MainPageViewModel();
         public ReadQR()
         {
-            InitializeComponent();            
+            InitializeComponent();
             this.BindingContext = vm;
         }
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
             try
-            {                
+            {
                 var parameter = (sender as Button).CommandParameter;
                 await Clipboard.SetTextAsync(parameter.ToString());
+
+                SfPopupLayout popupLayout = new SfPopupLayout();
+                popupLayout.PopupView.HeightRequest = 50;
+                popupLayout.PopupView.WidthRequest = Application.Current.MainPage.Width;
+
+
+
+                popupLayout.PopupView.ContentTemplate = new DataTemplate(() =>
+                {
+                    var grid = new Grid();
+                    grid.BackgroundColor = Color.Black;
+                    //grid.Margin = 5;
+                    var label1 = new Label()
+                    {
+                        Text = "Texto Copiado",
+                        TextColor = Color.White,
+                        HorizontalOptions = LayoutOptions.Center,
+                        VerticalOptions = LayoutOptions.Center
+                    };
+
+
+                    Color colorMain = (Color)App.Current.Resources["ColorMain"];
+
+
+                    var button = new Button()
+                    {
+                        Text = "Cerrar",
+                        TextColor = colorMain,
+                        HorizontalOptions = LayoutOptions.EndAndExpand,
+                        VerticalOptions = LayoutOptions.Center,
+                        BackgroundColor = Color.Black
+                    };
+
+                    button.Clicked += (s, a) => popupLayout.IsOpen = false;
+
+
+
+                    grid.Children.Add(label1, 0, 0);
+                    grid.Children.Add(button, 1, 0);
+                    return grid;
+
+                });
+
+                popupLayout.PopupView.ShowHeader = false;
+                popupLayout.PopupView.ShowFooter = false;
+                popupLayout.HeightRequest = 50;
+                popupLayout.WidthRequest = 50;
+                popupLayout.ShowRelativeToView(navigationDrawerList, RelativePosition.AlignBottom, 0, -20);                
+
             }
             catch (Exception w)
             {
                 await Application.Current.MainPage.DisplayAlert("alerta", "errro copiar:" + w, "OK");
-            }            
+            }
         }
     }
 
@@ -59,10 +109,10 @@ namespace QRcode.View
         public ListCodeBar SelectedCodeBar
         {
             get { return _SelectedCodeBar; }
-            set { _SelectedCodeBar = value; OnPropertyChanged("SelectedCodeBar");}
+            set { _SelectedCodeBar = value; OnPropertyChanged("SelectedCodeBar"); }
         }
 
-        public ICommand ButtonCommand { get; set; }        
+        public ICommand ButtonCommand { get; set; }
 
         public MainPageViewModel()
         {
@@ -132,7 +182,7 @@ namespace QRcode.View
                             code = result.Text,
                             date = DateTime.Now
                         });
-                        
+
                         //save database local
                         App.Database.SavePersonAsync(new Record
                         {

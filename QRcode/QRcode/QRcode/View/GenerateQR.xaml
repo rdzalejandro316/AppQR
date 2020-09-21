@@ -6,7 +6,8 @@
              xmlns:cards="clr-namespace:Syncfusion.XForms.Cards;assembly=Syncfusion.Cards.XForms"
              xmlns:barcode="clr-namespace:Syncfusion.SfBarcode.XForms;assembly=Syncfusion.SfBarcode.XForms"
              xmlns:combobox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms"
-                          xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+             xmlns:tabView="clr-namespace:Syncfusion.XForms.TabView;assembly=Syncfusion.SfTabView.XForms"
+             xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
              x:Class="QRcode.View.GenerateQR">
 
     <ContentPage.Resources>
@@ -25,39 +26,74 @@
             <Setter Property="FontSize" Value="10"/>
             <Setter Property="HeightRequest" Value="50"/>
         </Style>
+       
     </ContentPage.Resources>
 
     <ContentPage.Content>
-        <cards:SfCardView Margin="20" ShadowColor="#373737" HasShadow="True">
-            <ScrollView x:Name="PanelMain">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition/>
-                        <RowDefinition Height="60"/>
-                        <RowDefinition Height="60"/>
-                        <RowDefinition Height="10"/>
-                    </Grid.RowDefinitions>
+        <tabView:SfTabView SelectedIndex="0" BackgroundColor="White" VisibleHeaderCount="2" TabHeaderPosition="Top">
+            <tabView:SfTabView.SelectionIndicatorSettings>
+                <tabView:SelectionIndicatorSettings Color="{StaticResource ColorMain}"/>
+            </tabView:SfTabView.SelectionIndicatorSettings>
 
-                    <Grid x:Name="GridBarCode">
-                        <barcode:SfBarcode x:Name="SyncBarCode" Text="{Binding textcode}" BackgroundColor="White" Symbology="CodaBar"/>
+            <tabView:SfTabItem Title="Code Bar" TitleFontColor="Black" SelectionColor="Black">
+                <tabView:SfTabItem.Content>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition Height="60"/>
+                            <RowDefinition Height="60"/>
+                            <RowDefinition Height="5"/>
+                        </Grid.RowDefinitions>
+
+                        <Grid>
+                            <barcode:SfBarcode x:Name="Barcode" Text="{Binding textcode_bc}" BackgroundColor="White" Symbology="CodaBar"/>
+                        </Grid>
+
+                        <Grid Grid.Row="1">
+                            <inputLayout:SfTextInputLayout Hint="Texto" Style="{StaticResource combo}">
+                                <Entry Text="{Binding textcode_bc}" Style="{StaticResource TextCode}"/>
+                            </inputLayout:SfTextInputLayout>
+                        </Grid>
+
+                        <Grid Grid.Row="2">
+                            <Button Command="{Binding ButtonCommand}" Clicked="Button_Clicked" HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand" BackgroundColor="{StaticResource ColorMain}" TextColor="White" FontSize="Medium" CornerRadius="5" Text="Guardar Imagen" Margin="5,0,5,0"/>
+                        </Grid>
+
                     </Grid>
+                </tabView:SfTabItem.Content>
+            </tabView:SfTabItem>
 
-                    <Grid Grid.Row="1">
-                        <inputLayout:SfTextInputLayout Hint="Tipo" Style="{StaticResource combo}" >
-                            <combobox:SfComboBox x:Name="ComTipo" DataSource="{Binding typeCollection}" 
-                               SelectionChanged="ComTipo_SelectionChanged"
-                               Style="{StaticResource comboStyle}"/>
-                        </inputLayout:SfTextInputLayout>
+            <tabView:SfTabItem Title="Qr Code" TitleFontColor="Black" SelectionColor="Black">
+                <tabView:SfTabItem.Content>
+                    <Grid>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition Height="60"/>
+                                <RowDefinition Height="60"/>
+                                <RowDefinition Height="5"/>
+                            </Grid.RowDefinitions>
+
+                            <Grid>
+                                <barcode:SfBarcode Text="{Binding textcode_qr}" BackgroundColor="White" Symbology="QRCode"/>
+                            </Grid>
+
+                            <Grid Grid.Row="1">
+                                <inputLayout:SfTextInputLayout Hint="Texto" Style="{StaticResource combo}">
+                                    <Entry Text="{Binding textcode_qr}" Style="{StaticResource TextCode}"/>
+                                </inputLayout:SfTextInputLayout>
+                            </Grid>
+
+                            <Grid Grid.Row="2">
+                                <Button Command="{Binding ButtonCommand}" HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand" BackgroundColor="{StaticResource ColorMain}" TextColor="White" FontSize="Medium" CornerRadius="5" Text="Guardar Imagen" Margin="5,0,5,0"/>
+                            </Grid>
+
+                        </Grid>
                     </Grid>
+                </tabView:SfTabItem.Content>
+            </tabView:SfTabItem>
 
-                    <Grid Grid.Row="2">
-                        <inputLayout:SfTextInputLayout Hint="Texto" Style="{StaticResource combo}">
-                            <Entry Text="{Binding textcode}" Style="{StaticResource TextCode}"/>
-                        </inputLayout:SfTextInputLayout>
-                    </Grid>
 
-                </Grid>
-            </ScrollView>
-        </cards:SfCardView>
+        </tabView:SfTabView>
     </ContentPage.Content>
 </ContentPage>

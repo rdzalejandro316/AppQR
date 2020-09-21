@@ -208,6 +208,36 @@
           "lib/MonoAndroid10/Syncfusion.SfListView.XForms.dll": {}
         }
       },
+      "Syncfusion.Xamarin.SfPopupLayout/18.1.0.42": {
+        "type": "package",
+        "dependencies": {
+          "Syncfusion.Xamarin.Core": "18.1.0.42",
+          "Xamarin.Forms": "3.6.0.344457"
+        },
+        "compile": {
+          "lib/MonoAndroid10/Syncfusion.SfPopupLayout.XForms.Android.dll": {},
+          "lib/MonoAndroid10/Syncfusion.SfPopupLayout.XForms.dll": {}
+        },
+        "runtime": {
+          "lib/MonoAndroid10/Syncfusion.SfPopupLayout.XForms.Android.dll": {},
+          "lib/MonoAndroid10/Syncfusion.SfPopupLayout.XForms.dll": {}
+        }
+      },
+      "Syncfusion.Xamarin.SfTabView/18.1.0.42": {
+        "type": "package",
+        "dependencies": {
+          "Syncfusion.Xamarin.Core": "18.1.0.42",
+          "Xamarin.Forms": "3.6.0.344457"
+        },
+        "compile": {
+          "lib/MonoAndroid10/Syncfusion.SfTabView.XForms.Android.dll": {},
+          "lib/MonoAndroid10/Syncfusion.SfTabView.XForms.dll": {}
+        },
+        "runtime": {
+          "lib/MonoAndroid10/Syncfusion.SfTabView.XForms.Android.dll": {},
+          "lib/MonoAndroid10/Syncfusion.SfTabView.XForms.dll": {}
+        }
+      },
       "System.Numerics.Vectors/4.5.0": {
         "type": "package",
         "compile": {
@@ -1049,6 +1079,8 @@
           "Syncfusion.Xamarin.SfBusyIndicator": "18.1.0.42",
           "Syncfusion.Xamarin.SfComboBox": "18.1.0.42",
           "Syncfusion.Xamarin.SfListView": "18.1.0.42",
+          "Syncfusion.Xamarin.SfPopupLayout": "18.1.0.42",
+          "Syncfusion.Xamarin.SfTabView": "18.1.0.42",
           "Xamarin.Essentials": "1.3.1",
           "Xamarin.Forms": "4.5.0.495",
           "ZXing.Net.Mobile.Forms": "2.4.1",
@@ -1461,6 +1493,68 @@
         "lib/uap10.0/Syncfusion.SfListView.XForms.xml",
         "syncfusion.xamarin.sflistview.18.1.0.42.nupkg.sha512",
         "syncfusion.xamarin.sflistview.nuspec"
+      ]
+    },
+    "Syncfusion.Xamarin.SfPopupLayout/18.1.0.42": {
+      "sha512": "OwHZAheiwF+mO4L9zOvrXwY/R+KL2wgh2vshb9YaBOEh5TeMGwxSPABDMtSoNsv/I7H6d/knCiRvUunIEKrtdA==",
+      "type": "package",
+      "path": "syncfusion.xamarin.sfpopuplayout/18.1.0.42",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/MonoAndroid10/Syncfusion.SfPopupLayout.XForms.Android.dll",
+        "lib/MonoAndroid10/Syncfusion.SfPopupLayout.XForms.dll",
+        "lib/MonoAndroid10/Syncfusion.SfPopupLayout.XForms.xml",
+        "lib/Xamarin.iOS10/Syncfusion.SfPopupLayout.XForms.dll",
+        "lib/Xamarin.iOS10/Syncfusion.SfPopupLayout.XForms.iOS.dll",
+        "lib/Xamarin.iOS10/Syncfusion.SfPopupLayout.XForms.xml",
+        "lib/netstandard2.0/Syncfusion.SfPopupLayout.XForms.dll",
+        "lib/netstandard2.0/Syncfusion.SfPopupLayout.XForms.xml",
+        "lib/portable-win+net45+wp80+win81+wpa81/Syncfusion.SfPopupLayout.XForms.dll",
+        "lib/portable-win+net45+wp80+win81+wpa81/Syncfusion.SfPopupLayout.XForms.xml",
+        "lib/uap10.0/Syncfusion.SfPopupLayout.XForms.UWP.XML",
+        "lib/uap10.0/Syncfusion.SfPopupLayout.XForms.UWP.dll",
+        "lib/uap10.0/Syncfusion.SfPopupLayout.XForms.UWP.pri",
+        "lib/uap10.0/Syncfusion.SfPopupLayout.XForms.UWP/Properties/Syncfusion.SfPopupLayout.XForms.UWP.rd.xml",
+        "lib/uap10.0/Syncfusion.SfPopupLayout.XForms.UWP/Resources/popup_forms_dark_theme_close_icon.png",
+        "lib/uap10.0/Syncfusion.SfPopupLayout.XForms.UWP/Resources/popup_forms_light_theme_close_icon.png",
+        "lib/uap10.0/Syncfusion.SfPopupLayout.XForms.UWP/Resources/popup_forms_uwp_close_icon.png",
+        "lib/uap10.0/Syncfusion.SfPopupLayout.XForms.UWP/Syncfusion.SfPopupLayout.XForms.UWP/Resources/popup_forms_dark_theme_close_icon.png",
+        "lib/uap10.0/Syncfusion.SfPopupLayout.XForms.UWP/Syncfusion.SfPopupLayout.XForms.UWP/Resources/popup_forms_light_theme_close_icon.png",
+        "lib/uap10.0/Syncfusion.SfPopupLayout.XForms.UWP/Syncfusion.SfPopupLayout.XForms.UWP/Resources/popup_forms_uwp_close_icon.png",
+        "lib/uap10.0/Syncfusion.SfPopupLayout.XForms.dll",
+        "lib/uap10.0/Syncfusion.SfPopupLayout.XForms.xml",
+        "syncfusion.xamarin.sfpopuplayout.18.1.0.42.nupkg.sha512",
+        "syncfusion.xamarin.sfpopuplayout.nuspec"
+      ]
+    },
+    "Syncfusion.Xamarin.SfTabView/18.1.0.42": {
+      "sha512": "wt3DH5e3jj8oV0v7zxJi0xqwXD+Rhv4ShgPlSs0jlVpVXaLKBo2Y/7Itoe3XqVLVZFLFhFxSLVwJ4jio+fGJdg==",
+      "type": "package",
+      "path": "syncfusion.xamarin.sftabview/18.1.0.42",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/MonoAndroid10/Syncfusion.SfTabView.XForms.Android.dll",
+        "lib/MonoAndroid10/Syncfusion.SfTabView.XForms.dll",
+        "lib/MonoAndroid10/Syncfusion.SfTabView.XForms.xml",
+        "lib/Xamarin.iOS10/Syncfusion.SfTabView.XForms.dll",
+        "lib/Xamarin.iOS10/Syncfusion.SfTabView.XForms.iOS.dll",
+        "lib/Xamarin.iOS10/Syncfusion.SfTabView.XForms.xml",
+        "lib/netstandard2.0/Syncfusion.SfTabView.XForms.dll",
+        "lib/netstandard2.0/Syncfusion.SfTabView.XForms.xml",
+        "lib/portable-win+net45+wp80+win81+wpa81/Syncfusion.SfTabView.XForms.dll",
+        "lib/portable-win+net45+wp80+win81+wpa81/Syncfusion.SfTabView.XForms.xml",
+        "lib/uap10.0/Syncfusion.SfTabView.XForms.UWP.XML",
+        "lib/uap10.0/Syncfusion.SfTabView.XForms.UWP.dll",
+        "lib/uap10.0/Syncfusion.SfTabView.XForms.UWP.pri",
+        "lib/uap10.0/Syncfusion.SfTabView.XForms.UWP/Properties/Syncfusion.SfTabView.XForms.UWP.rd.xml",
+        "lib/uap10.0/Syncfusion.SfTabView.XForms.UWP/Syncfusion.SfTabView.XForms.UWP.xr.xml",
+        "lib/uap10.0/Syncfusion.SfTabView.XForms.UWP/Themes/Generic.xaml",
+        "lib/uap10.0/Syncfusion.SfTabView.XForms.dll",
+        "lib/uap10.0/Syncfusion.SfTabView.XForms.xml",
+        "syncfusion.xamarin.sftabview.18.1.0.42.nupkg.sha512",
+        "syncfusion.xamarin.sftabview.nuspec"
       ]
     },
     "System.Numerics.Vectors/4.5.0": {
