@@ -38,6 +38,7 @@ namespace QRcode.View
                 popupLayout.PopupView.WidthRequest = Application.Current.MainPage.Width;
 
 
+                #region creacion de popup 
 
                 popupLayout.PopupView.ContentTemplate = new DataTemplate(() =>
                 {
@@ -52,9 +53,7 @@ namespace QRcode.View
                         VerticalOptions = LayoutOptions.Center
                     };
 
-
                     Color colorMain = (Color)App.Current.Resources["ColorMain"];
-
 
                     var button = new Button()
                     {
@@ -67,8 +66,6 @@ namespace QRcode.View
 
                     button.Clicked += (s, a) => popupLayout.IsOpen = false;
 
-
-
                     grid.Children.Add(label1, 0, 0);
                     grid.Children.Add(button, 1, 0);
                     return grid;
@@ -79,7 +76,10 @@ namespace QRcode.View
                 popupLayout.PopupView.ShowFooter = false;
                 popupLayout.HeightRequest = 50;
                 popupLayout.WidthRequest = 50;
-                popupLayout.ShowRelativeToView(navigationDrawerList, RelativePosition.AlignBottom, 0, -20);                
+                popupLayout.ShowRelativeToView(navigationDrawerList, RelativePosition.AlignBottom, 0, -20);
+
+                #endregion
+
 
             }
             catch (Exception w)
@@ -184,7 +184,7 @@ namespace QRcode.View
                         });
 
                         //save database local
-                        App.Database.SavePersonAsync(new Record
+                        App.Database.SaveRecordAsync(new Record
                         {
                             Code = result.Text,
                             Date = DateTime.Now

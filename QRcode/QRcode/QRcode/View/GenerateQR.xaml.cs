@@ -12,6 +12,8 @@ using System.Windows.Input;
 using System.Xml.Schema;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Xamarin.Essentials;
+using ZXing;
 
 namespace QRcode.View
 {
@@ -25,17 +27,35 @@ namespace QRcode.View
             this.BindingContext = ViewModel;
         }
 
-        private void Button_Clicked(object sender, EventArgs e)
+        private async void Button_Clicked(object sender, EventArgs e)
         {
             try
             {
-             
+                //BarcodeWriter.Renderer = new ZXing.Mobile.BitmapRenderer();
+                //var bitmap = barcodeWriter.Write(text);
+                //var stream = bitmap.AsPNG().AsStream();
 
+                //byte[] imageData = bitmap.AsPNG().ToArray();
+
+
+                //var chartImage = new UIImage(NSData.FromArray(imageData));
+                //chartImage.SaveToPhotosAlbum((image, error) =>
+                //{
+
+                //    //you can retrieve the saved UI Image as well if needed using
+                //    //var i = image as UIImage;
+                //    if (error != null)
+                //    {
+                //        Console.WriteLine(error.ToString());
+                //    }
+
+                //});
+                //SaveQRComplete.SetResult("true");
 
             }
             catch (Exception w)
             {
-                DisplayAlert("error","e:"+w,"OK");
+                await DisplayAlert("error","e:"+w,"OK");
             }
         }
 

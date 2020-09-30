@@ -4,31 +4,31 @@
              xmlns:syncfusion="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"             
              xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
              x:Class="QRcode.View.RecordsQR" BackgroundColor="WhiteSmoke">
+
+    <ContentPage.Resources>
+        <Style TargetType="Button" x:Key="BtnAccion">
+            <Setter Property="HeightRequest" Value="35"/>
+            <Setter Property="WidthRequest" Value="60"/>
+            <Setter Property="VerticalOptions" Value="Center"/>
+            <Setter Property="FontSize" Value="10"/>
+            <Setter Property="CornerRadius" Value="10"/>
+            <Setter Property="TextColor" Value="{StaticResource ColorMain}"/>
+            <Setter Property="BorderColor" Value="{StaticResource ColorMain}"/>
+            <Setter Property="BorderWidth" Value="2"/>
+            <Setter Property="BackgroundColor" Value="White"/>
+        </Style>
+    </ContentPage.Resources>
     
     <ContentPage.Content>
-        <syncfusion:SfListView 
-                   ItemsSource="{Binding RecordInfo}" VerticalOptions="FillAndExpand" AutoFitMode="DynamicHeight" AllowSwiping="True">
-            <syncfusion:SfListView.LeftSwipeTemplate>
-                <DataTemplate x:Name="LeftSwipeTemplate">
-                    <Grid>
-                        <Grid BackgroundColor="{StaticResource ColorMain}" HorizontalOptions="Fill" VerticalOptions="Fill" Grid.Column="0">
-                            <buttons:SfButton x:Name="BtnDelete" Clicked="BtnDelete_Clicked">
-                                <buttons:SfButton.Content>
-                                    <Image Source="delete.png"  HeightRequest="30" WidthRequest="30" HorizontalOptions="Center" VerticalOptions="Center"/>
-                                </buttons:SfButton.Content>
-                            </buttons:SfButton>
-                        </Grid>
-                    </Grid>
-                </DataTemplate>
-            </syncfusion:SfListView.LeftSwipeTemplate>
-
+        <syncfusion:SfListView x:Name="ListViewHistory" ItemsSource="{Binding RecordInfo}" VerticalOptions="FillAndExpand" AutoFitMode="DynamicHeight">
             <syncfusion:SfListView.ItemTemplate>
                 <DataTemplate>
                     <Frame BorderColor="LightGray">
                         <Grid Margin="5" BackgroundColor="White" >
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="0.4*" />
-                                <RowDefinition Height="0.6*" />
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="40"/>
                             </Grid.RowDefinitions>
                             
                             <StackLayout Orientation="Horizontal">
@@ -36,8 +36,14 @@
                                 <Label Text="{Binding Date}" FontAttributes="Bold" TextColor="{StaticResource ColorMain}" FontSize="12"/>
                             </StackLayout>
                             
-                            <Label Grid.Row="1" Text="{Binding Code}" TextColor="Black" FontSize="20"/>
+                            <Label Grid.Row="1" Text="{Binding Code}" TextColor="Black" FontSize="18" LineBreakMode="CharacterWrap"/>
 
+                            <StackLayout Orientation="Horizontal" Grid.Row="2" HorizontalOptions="Center" Margin="0,5,0,0">
+                                <Button x:Name="BtnCopy" Text="Copy" Style="{StaticResource BtnAccion}" Clicked="BtnCopy_Clicked" CommandParameter="{Binding Code}"/>
+                                <Button x:Name="BtnShare" Text="Share" Style="{StaticResource BtnAccion}" Clicked="BtnShare_Clicked"/>
+                                <Button x:Name="BtnDelete" Text="Delete" Style="{StaticResource BtnAccion}" Clicked="BtnDelete_Clicked" CommandParameter="{Binding ID}"/>
+                            </StackLayout>
+                            
                         </Grid>
                     </Frame>
                 </DataTemplate>

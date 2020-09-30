@@ -15,5 +15,3 @@ C:\Users\aleja\Desktop\QR\QRcode\QRcode\QRcode\obj\Debug\netstandard2.0\ref\QRco
 C:\Users\aleja\Desktop\QR\QRcode\QRcode\QRcode\obj\Debug\netstandard2.0\QRcode.pdb
 C:\Users\aleja\Desktop\QR\QRcode\QRcode\QRcode\obj\Debug\netstandard2.0\QRcode.csprojAssemblyReference.cache
 C:\Users\aleja\Desktop\QR\QRcode\QRcode\QRcode\obj\Debug\netstandard2.0\View\RecordsQR.xaml.g.cs
-C:\Users\aleja\Desktop\QR\QRcode\QRcode\QRcode\obj\Debug\netstandard2.0\QRcode.csproj.CoreCompileInputs.cache
-C:\Users\aleja\Desktop\QR\QRcode\QRcode\QRcode\obj\Debug\netstandard2.0\XamlC.stamp

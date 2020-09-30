@@ -1,6 +1,7 @@
 ﻿using SQLite;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -21,18 +22,19 @@ namespace QRcode.Models
         {
             return _database.Table<Record>().OrderByDescending(i => i.Date).ToListAsync();
         }
+        
 
-        public Task<int> SavePersonAsync(Record record)
+        public Task<int> SaveRecordAsync(Record record)
         {
             return _database.InsertAsync(record);
         }
 
-        public Task<int> DeletePersonAsync(Record record)
+        public Task<int> DeleteRecordAsync(Record record)
         {
             return _database.DeleteAsync(record);                
         }
 
-        public Task<int> UpdatePersonAsync(Record record)
+        public Task<int> UpdateRecordAsync(Record record)
         {
             return _database.UpdateAsync(record);
         }
