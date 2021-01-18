@@ -7,7 +7,7 @@
   <uses-permission android:name="android.permission.FLASHLIGHT" />
   <uses-permission android:name="android.permission.CAMERA" />
   <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-  <application android:label="QR code" android:icon="@mipmap/logo" android:name="android.app.Application" android:allowBackup="true" android:debuggable="true">
+  <application android:label="QR code" android:icon="@mipmap/logo" android:name="android.app.Application" android:allowBackup="true" android:debuggable="true" android:extractNativeLibs="true">
     <activity android:noHistory="true" android:theme="@style/MyTheme.Splash" android:name="crc64de41ef268e8f0f55.MainActivity">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />

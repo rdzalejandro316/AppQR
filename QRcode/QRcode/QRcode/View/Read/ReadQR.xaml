@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewmodels="clr-namespace:QRcode.View"
+             xmlns:zxing="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms" 
+             x:Class="QRcode.View.Read.ReadQR">
+
+    <ContentPage.Resources>
+        <Style TargetType="ImageButton" x:Key="BtnIcon">
+            <!--<Setter Property="Background" Value="{x:Null}"/>-->
+            <Setter Property="WidthRequest" Value="50"/>
+        </Style>
+    </ContentPage.Resources>
+
+    <Grid BackgroundColor="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
+
+        <Grid BackgroundColor="{StaticResource ColorMain}">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                <ImageButton x:Name="BtnGallery" Clicked="BtnGallery_Clicked" Source="config.png" Style="{StaticResource BtnIcon}"/>
+                <ImageButton x:Name="BtnLantern" Clicked="Button_Clicked" Source="config.png" Style="{StaticResource BtnIcon}"/>
+                <ImageButton x:Name="BtnOption" Clicked="Button_Clicked" Source="config.png" Style="{StaticResource BtnIcon}"/>
+            </StackLayout>
+        </Grid>
+
+
+        <Grid x:Name="PanelZxing" Grid.Row="1" BackgroundColor="Black">
+            <zxing:ZXingScannerView x:Name="zxing" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" 
+                                OnScanResult="ZXingScannerView_OnOnScanResult" 
+                                IsScanning="True"
+                                IsAnalyzing="True"
+                                IsTorchOn="True"
+                                Options="{Binding options}"
+                                />
+
+            <!-- genera el codigo qr
+            <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                <zxing:ZXingBarcodeImageView BarcodeFormat="QR_CODE" BarcodeValue="http://www.c-sharpcorner.com" />
+            </StackLayout>-->
+        </Grid>
+
+        <Grid x:Name="PanelIsReadOnline" Grid.Row="2" BackgroundColor="{StaticResource ColorMain}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Label Text="RESULT" VerticalOptions="Center" HorizontalOptions="Center" TextColor="White" FontAttributes="Bold"/>
+
+            <Label Grid.Row="1" x:Name="Tresult" Text="{Binding result_read}" TextColor="White"/>
+        </Grid>
+
+    </Grid>
+
+</ContentPage>

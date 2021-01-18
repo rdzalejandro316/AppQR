@@ -27,29 +27,30 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Menu.xaml.cs">
-      <DependentUpon>Menu.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="MenuContent.xaml.cs">
-      <DependentUpon>MenuContent.xaml</DependentUpon>
+    <Compile Update="Home.xaml.cs">
+      <DependentUpon>Home.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Menu.xaml">
+    <EmbeddedResource Update="Home.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="MenuItems.xaml">
+    <EmbeddedResource Update="View\Generate\GenerateQR.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="View\GenerateQR.xaml">
+    <EmbeddedResource Update="View\Read\ReadQR.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="View\ReadQR.xaml">
+    <EmbeddedResource Update="View\Read\Scann.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="View\RecordsQR.xaml">
+    <EmbeddedResource Update="View\Record\RecordsQR.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="View\Setting\" />
   </ItemGroup>
 </Project>

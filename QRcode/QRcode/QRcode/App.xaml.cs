@@ -1,4 +1,5 @@
-﻿using QRcode.Models;
+﻿using QRcode.Helper;
+using QRcode.Models;
 using Syncfusion.SfBarcode.XForms;
 using System;
 using System.Collections.ObjectModel;
@@ -22,15 +23,15 @@ namespace QRcode
                 return database;
             }
         }
-
-
-        public static MasterDetailPage MasterD { get; set; }        
+        
         public App()
         {
             //version 18.1.0.42
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MjQ0NjY5QDMxMzgyZTMxMmUzMG1EQkJLeHZXTEpROFo4Yk9MUEtYZ0IwWkF1eFdpV0RjcFBqbXVYYXF5ekE9");          
             InitializeComponent();
-            MainPage = new Menu();
+
+            Configuration.Active();
+            MainPage = new Home();
         }
         
         

@@ -21,7 +21,7 @@ namespace QRcode.Droid
 
             global::ZXing.Net.Mobile.Forms.Android.Platform.Init();
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
-            global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
+            global::Xamarin.Forms.Forms.Init(this, savedInstanceState);            
             Syncfusion.XForms.Android.PopupLayout.SfPopupLayoutRenderer.Init();
             LoadApplication(new App());
         }

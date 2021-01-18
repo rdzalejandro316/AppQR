@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"             
+             xmlns:tabView="clr-namespace:Syncfusion.XForms.TabView;assembly=Syncfusion.SfTabView.XForms"
+             xmlns:syncfusion="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+             x:Class="QRcode.Home" Title="Siasoft QR">
+
+    <Grid>
+        <tabView:SfTabView OverflowMode="CenterButton" TabHeaderPosition="Bottom" 
+                           TabHeaderBackgroundColor="WhiteSmoke">
+
+            <tabView:SfTabView.SelectionIndicatorSettings>
+                <tabView:SelectionIndicatorSettings Color="LightGray"  Position="Fill" AnimationDuration="50" StrokeThickness="1"/>
+            </tabView:SfTabView.SelectionIndicatorSettings>
+
+            <tabView:SfTabView.CenterButtonView>
+                <Frame BackgroundColor="{StaticResource ColorMain}" CornerRadius="50">
+                    <Image Source="qrcode.png">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                </Frame>
+            </tabView:SfTabView.CenterButtonView>
+
+            <tabView:SfTabItem Title="GENERATE"  ImageSource="home.png" TitleFontColor="{StaticResource ColorMain}" SelectionColor="Black" TitleFontSize="10">
+                <tabView:SfTabItem.Content>
+                    <Grid BackgroundColor="Green">
+                    <StackLayout>
+                        <syncfusion:SfCheckBox Text="isSound"/>
+                        <syncfusion:SfCheckBox Text="isSaveData"/>
+                            <syncfusion:SfCheckBox Text="isReadOnline" IsChecked="{Binding isReadOnlineHome}"/>
+                        </StackLayout>
+                    </Grid>
+                </tabView:SfTabItem.Content>
+            </tabView:SfTabItem>
+            <tabView:SfTabItem Title="RECORD" ImageSource="historialgray.png" TitleFontColor="{StaticResource ColorMain}" TitleFontSize="10"/>
+
+        </tabView:SfTabView>
+    </Grid>
+
+
+</ContentPage>
+  
